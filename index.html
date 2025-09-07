@@ -1,69 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WELCOME RAVI VO</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <div class="logo">
-      <div class="mark">VO</div>
-      <h1 class="title">WELCOME RAVI VO</h1>
-    </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search section..." />
-    </div>
-    <nav class="menu" id="menu">
-      <a href="#" data-section="about" class="active">About</a>
-      <a href="#" data-section="pan">PAN Card</a>
-      <a href="#" data-section="vehicle">Vehicle</a>
-      <a href="#" data-section="abha">ABHA Health</a>
-      <a href="#" data-section="canteen">Canteen</a>
-      <a href="#" data-section="dl">Driving License</a>
-      <a href="#" data-section="dep">Dependent Card</a>
-      <a href="#" data-section="police">Police Card</a>
-    </nav>
-  </aside>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">VO</div>
+    <input type="text" id="searchBar" placeholder="Search section...">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#pan">PAN Card</a></li>
+      <li><a href="#vehicle">Vehicle</a></li>
+      <li><a href="#abha">ABHA Health</a></li>
+      <li><a href="#canteen">Police Canteen</a></li>
+      <li><a href="#dl">Driving License</a></li>
+      <li><a href="#dep">Dep Card</a></li>
+      <li><a href="#police">Police Card</a></li>
+    </ul>
+  </nav>
 
-  <!-- Content -->
-  <main class="content">
-    <section id="about" class="active">
-      <h2>About Me</h2>
-      <div class="profile-pic">
-        <div id="placeholder">Upload profile image</div>
-        <img id="profileImage" style="display:none;" alt="Profile preview">
-      </div>
-      <label class="btn" for="profileUpload">Upload Profile</label>
-      <input id="profileUpload" type="file" accept="image/*" style="display:none;">
-      <button id="downloadJPG" class="btn" disabled>⬇ JPG</button>
-      <button id="downloadPDF" class="btn" disabled>⬇ PDF</button>
-    </section>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <img src="docs/profile.jpg" alt="Profile Picture" class="profile-pic">
+    <p>Hello, I’m Ravi VO. Welcome to my portfolio website.</p>
+    <a href="docs/profile.jpg" download>Download Profile (JPG)</a>
+  </section>
 
-    <section id="pan"><h2>PAN Card</h2><label class="btn" for="input-pan">Upload Files</label><input id="input-pan" type="file" multiple accept="image/*,application/pdf" style="display:none;"><div class="preview" id="preview-pan"><div>No files uploaded</div></div></section>
-    <section id="vehicle"><h2>Vehicle</h2><label class="btn" for="input-vehicle">Upload Files</label><input id="input-vehicle" type="file" multiple accept="image/*,application/pdf" style="display:none;"><div class="preview" id="preview-vehicle"><div>No files uploaded</div></div></section>
-    <section id="abha"><h2>ABHA Health</h2><label class="btn" for="input-abha">Upload Files</label><input id="input-abha" type="file" multiple accept="image/*,application/pdf" style="display:none;"><div class="preview" id="preview-abha"><div>No files uploaded</div></div></section>
-    <section id="canteen"><h2>Canteen</h2><label class="btn" for="input-canteen">Upload Files</label><input id="input-canteen" type="file" multiple accept="image/*,application/pdf" style="display:none;"><div class="preview" id="preview-canteen"><div>No files uploaded</div></div></section>
-    <section id="dl"><h2>Driving License</h2><label class="btn" for="input-dl">Upload Files</label><input id="input-dl" type="file" multiple accept="image/*,application/pdf" style="display:none;"><div class="preview" id="preview-dl"><div>No files uploaded</div></div></section>
-    <section id="dep"><h2>Dependent Card</h2><label class="btn" for="input-dep">Upload Files</label><input id="input-dep" type="file" multiple accept="image/*,application/pdf" style="display:none;"><div class="preview" id="preview-dep"><div>No files uploaded</div></div></section>
-    <section id="police"><h2>Police Card</h2><label class="btn" for="input-police">Upload Files</label><input id="input-police" type="file" multiple accept="image/*,application/pdf" style="display:none;"><div class="preview" id="preview-police"><div>No files uploaded</div></div></section>
-    <footer>© 2025 RAVI VO</footer>
-  </main>
+  <!-- PAN Card Section -->
+  <section id="pan" class="section">
+    <h2>PAN Card</h2>
+    <a href="docs/pan.pdf" target="_blank">View PAN Card</a>
+    <a href="docs/pan.pdf" download>Download PAN Card</a>
+  </section>
 
-  <!-- Viewer -->
-  <div class="viewer" id="viewer">
-    <div class="viewer-box">
-      <div class="viewer-bar">
-        <div class="viewer-title" id="viewerTitle">Preview</div>
-        <button class="viewer-close" id="viewerClose">Close ✕</button>
-      </div>
-      <div class="viewer-content" id="viewerContent"></div>
-    </div>
-  </div>
+  <!-- Vehicle Section -->
+  <section id="vehicle" class="section">
+    <h2>Vehicle Documents</h2>
+    <a href="docs/vehicle.pdf" target="_blank">View Vehicle Doc</a>
+    <a href="docs/vehicle.pdf" download>Download Vehicle Doc</a>
+  </section>
 
-<script src="script.js"></script>
+  <!-- ABHA Health -->
+  <section id="abha" class="section">
+    <h2>ABHA Health Card</h2>
+    <a href="docs/abha.pdf" target="_blank">View ABHA Card</a>
+    <a href="docs/abha.pdf" download>Download ABHA Card</a>
+  </section>
+
+  <!-- Police Canteen -->
+  <section id="canteen" class="section">
+    <h2>Police Canteen Card</h2>
+    <a href="docs/policecanteen.pdf" target="_blank">View Canteen Card</a>
+    <a href="docs/policecanteen.pdf" download>Download Canteen Card</a>
+  </section>
+
+  <!-- Driving License -->
+  <section id="dl" class="section">
+    <h2>Driving License</h2>
+    <a href="docs/driving.pdf" target="_blank">View DL</a>
+    <a href="docs/driving.pdf" download>Download DL</a>
+  </section>
+
+  <!-- Dep Card -->
+  <section id="dep" class="section">
+    <h2>Dep Card</h2>
+    <a href="docs/dep.pdf" target="_blank">View Dep Card</a>
+    <a href="docs/dep.pdf" download>Download Dep Card</a>
+  </section>
+
+  <!-- Police Card -->
+  <section id="police" class="section">
+    <h2>Police Card</h2>
+    <a href="docs/police.pdf" target="_blank">View Police Card</a>
+    <a href="docs/police.pdf" download>Download Police Card</a>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
