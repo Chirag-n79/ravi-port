@@ -5,172 +5,262 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WELCOME RAVI VO</title>
   <style>
-    body { margin:0; font-family:Arial, sans-serif; background:#f4f4f9; }
-    header { background:#222; color:#fff; padding:10px 20px; display:flex; align-items:center; justify-content:space-between; }
-    header h1 { margin:0; font-size:22px; }
-    nav { display:flex; gap:10px; flex-wrap:wrap; }
-    nav input { padding:5px; border-radius:5px; border:1px solid #ccc; }
-    nav button { background:#444; color:white; border:none; padding:6px 12px; border-radius:5px; cursor:pointer; }
-    nav button:hover { background:#666; }
-    .section { padding:20px; display:none; }
-    .active { display:block; }
-    .upload-box { border:2px dashed #888; padding:15px; text-align:center; margin-bottom:10px; border-radius:10px; background:#fff; }
-    .file-item { background:#fff; padding:10px; margin:5px 0; border-radius:5px; display:flex; justify-content:space-between; align-items:center; }
-    .file-item button { margin-left:5px; padding:4px 8px; border:none; border-radius:5px; cursor:pointer; }
-    .view-btn { background:#007bff; color:#fff; }
-    .download-btn { background:#28a745; color:#fff; }
-    .delete-btn { background:#dc3545; color:#fff; }
-    #viewer { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:none; align-items:center; justify-content:center; }
-    #viewerContent { background:#fff; padding:20px; border-radius:10px; width:80%; height:80%; overflow:auto; }
-    #viewer.show { display:flex; }
-    /* Login */
-    #loginPage { display:flex; align-items:center; justify-content:center; height:100vh; background:#333; color:#fff; }
-    #loginBox { background:#444; padding:30px; border-radius:10px; text-align:center; width:300px; }
-    #loginBox h2 { margin:0 0 15px; }
-    #loginBox img { width:120px; height:120px; border-radius:50%; margin-bottom:15px; } /* increased logo size */
-    #loginBox input { width:100%; padding:10px; margin:8px 0; border:none; border-radius:5px; }
-    #loginBox button { width:100%; padding:10px; margin-top:10px; border:none; border-radius:5px; background:#28a745; color:white; cursor:pointer; }
-    #loginBox button:hover { background:#218838; }
-    .password-box { position:relative; }
-    .toggle-eye { position:absolute; top:50%; right:10px; transform:translateY(-50%); cursor:pointer; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+    }
+    header {
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+    nav {
+      display: flex;
+      gap: 10px;
+    }
+    nav input {
+      padding: 5px;
+    }
+    .logo {
+      width: 100px;  /* Increased size */
+      height: 100px; /* Increased size */
+      border-radius: 50%;
+      background: #555;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .container {
+      display: flex;
+    }
+    aside {
+      width: 220px;
+      background: #222;
+      color: white;
+      min-height: 100vh;
+      padding: 20px 10px;
+    }
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+    aside li {
+      margin: 10px 0;
+    }
+    aside a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 8px;
+      border-radius: 6px;
+    }
+    aside a:hover {
+      background: #444;
+    }
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+    section {
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    .file-list {
+      margin-top: 10px;
+    }
+    .file-item {
+      background: #eee;
+      padding: 8px;
+      margin: 5px 0;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .file-item button {
+      margin-left: 5px;
+    }
+    #loginPage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background: #222;
+      color: white;
+    }
+    #portfolioPage {
+      display: none;
+    }
+    .password-box {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .password-box input {
+      padding: 8px;
+    }
   </style>
 </head>
 <body>
   <!-- Login Page -->
   <div id="loginPage">
-    <div id="loginBox">
-      <img src="https://via.placeholder.com/120" alt="Logo">
-      <h2>WELCOME RAVI VO</h2>
-      <div class="password-box">
-        <input type="password" id="passwordInput" placeholder="Enter Password">
-        <span class="toggle-eye" onclick="togglePassword()">👁️</span>
-      </div>
-      <button onclick="checkPassword()">Login</button>
-      <p id="loginError" style="color:red; display:none;">Wrong password</p>
+    <div class="logo">VO</div>
+    <h2>WELCOME RAVI VO</h2>
+    <div class="password-box">
+      <input type="password" id="passwordInput" placeholder="Enter Password">
+      <button onclick="togglePassword()">👁️</button>
     </div>
+    <button onclick="checkPassword()">Login</button>
+    <p id="loginError" style="color:red;display:none;">Incorrect Password</p>
   </div>
 
-  <!-- Portfolio -->
-  <div id="portfolio" style="display:none;">
+  <!-- Portfolio Page -->
+  <div id="portfolioPage">
     <header>
       <h1>WELCOME RAVI VO</h1>
       <nav>
-        <input type="text" id="search" placeholder="Search section...">
+        <input type="text" id="searchBox" placeholder="Search section..." onkeyup="searchSection()">
       </nav>
     </header>
-    <div id="menu"></div>
-    <div id="content"></div>
-  </div>
-
-  <!-- Viewer -->
-  <div id="viewer">
-    <div id="viewerContent">
-      <h3 id="viewerTitle"></h3>
-      <div id="viewerBody"></div>
-      <button onclick="closeViewer()">Close</button>
+    <div class="container">
+      <aside>
+        <ul id="menuList"></ul>
+      </aside>
+      <main id="content"></main>
     </div>
   </div>
 
-<script>
-  /* Password */
-  function checkPassword(){
-    const input=document.getElementById('passwordInput').value;
-    if(input==="Jeevanraviygr@3"){ 
-      document.getElementById('loginPage').style.display='none';
-      document.getElementById('portfolio').style.display='block';
-    } else {
-      document.getElementById('loginError').style.display='block';
+  <script>
+    const password = "Jeevanraviygr@3";
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === password) {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("portfolioPage").style.display = "block";
+      } else {
+        document.getElementById("loginError").style.display = "block";
+      }
     }
-  }
-  function togglePassword(){
-    const pass=document.getElementById('passwordInput');
-    pass.type = pass.type === "password" ? "text" : "password";
-  }
-
-  /* Sections */
-  const sections=[
-    "About","PAN Card","Vehicle","ABHA Health","Police Canteen Card","Driving DL","DEP Card","Police Card",
-    "Aadhar Card","Voter ID","Birth Certificate","RC Card","Department Card","Insurance","Working Certificate","NOC","IT Returns","Marks Cards","Bank Passbooks","Deeds","Department Forms","Office Letters","Paanis(Layout Sketch)","Health Tips","Bills","Warranty Cards","Photos","Activities","Others","Gas Passbook","Ration Card","Pension"
-  ];
-  const content=document.getElementById('content');
-  const menu=document.getElementById('menu');
-  const filesData=JSON.parse(localStorage.getItem('filesData')||'{}');
-
-  sections.forEach((sec,i)=>{
-    const btn=document.createElement('button');btn.textContent=sec;
-    btn.onclick=()=>showSection(i);
-    menu.appendChild(btn);
-
-    const div=document.createElement('div');div.className='section';div.id='sec'+i;
-    div.innerHTML=`<h2>${sec}</h2>
-      <div class="upload-box">
-        <input type="file" multiple onchange="uploadFiles(event,${i})">
-      </div>
-      <div id="files${i}"></div>`;
-    content.appendChild(div);
-  });
-
-  function showSection(i){
-    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-    document.getElementById('sec'+i).classList.add('active');
-  }
-
-  function uploadFiles(event,i){
-    const files=event.target.files;
-    if(!filesData[i]) filesData[i]=[];
-    for(const file of files){
-      const reader=new FileReader();
-      reader.onload=e=>{
-        filesData[i].push({name:file.name,data:e.target.result,type:file.type});
-        localStorage.setItem('filesData',JSON.stringify(filesData));
-        renderFiles(i);
-      };
-      reader.readAsDataURL(file);
+    function togglePassword() {
+      const input = document.getElementById("passwordInput");
+      input.type = input.type === "password" ? "text" : "password";
     }
-  }
 
-  function renderFiles(i){
-    const box=document.getElementById('files'+i);box.innerHTML='';
-    (filesData[i]||[]).forEach((f,idx)=>{
-      const div=document.createElement('div');div.className='file-item';
-      div.innerHTML=`${f.name}
+    const sections = [
+      "About", "PAN Card", "Vehicle", "ABHA Health", "Police Canteen Card", "Driving DL",
+      "DEP Card", "Police Card", "Aadhar Card", "Voter ID", "Birth Certificate", "RC Card",
+      "Department Card", "Insurance", "Working Certificate", "NOC", "IT Returns",
+      "Marks Cards", "Bank Passbooks", "Deeds", "Department Forms", "Office Letters",
+      "PAANIS (Layout Sketch)", "Health Tips", "Bills", "Warranty Cards", "Photos",
+      "Activities", "Others", "Gas Passbook", "Ration Card", "Pention"
+    ];
+
+    const menuList = document.getElementById("menuList");
+    const content = document.getElementById("content");
+
+    function loadFiles(section) {
+      return JSON.parse(localStorage.getItem(section) || "[]");
+    }
+
+    function saveFiles(section, files) {
+      localStorage.setItem(section, JSON.stringify(files));
+    }
+
+    function showSection(name) {
+      content.innerHTML = "";
+      const section = document.createElement("section");
+      section.classList.add("active");
+
+      const title = document.createElement("h2");
+      title.textContent = name;
+      section.appendChild(title);
+
+      const input = document.createElement("input");
+      input.type = "file";
+      input.multiple = true;
+      input.onchange = (e) => handleFiles(e.target.files, name);
+      section.appendChild(input);
+
+      const fileList = document.createElement("div");
+      fileList.className = "file-list";
+      section.appendChild(fileList);
+
+      const files = loadFiles(name);
+      files.forEach(file => addFileItem(fileList, file, name));
+
+      content.appendChild(section);
+    }
+
+    function handleFiles(files, section) {
+      let saved = loadFiles(section);
+      for (let file of files) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const fileData = { name: file.name, data: e.target.result };
+          saved.push(fileData);
+          saveFiles(section, saved);
+          showSection(section);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function addFileItem(fileList, file, section) {
+      const item = document.createElement("div");
+      item.className = "file-item";
+      item.innerHTML = `
+        <span>${file.name}</span>
         <div>
-          <button class="view-btn" onclick="openViewer(${i},${idx})">View</button>
-          <a href="${f.data}" download="${f.name}" class="download-btn">Download</a>
-          <button class="delete-btn" onclick="deleteFile(${i},${idx})">Delete</button>
-        </div>`;
-      box.appendChild(div);
-    });
-  }
-
-  function deleteFile(i,idx){
-    filesData[i].splice(idx,1);
-    localStorage.setItem('filesData',JSON.stringify(filesData));
-    renderFiles(i);
-  }
-
-  function openViewer(i,idx){
-    const f=filesData[i][idx];
-    document.getElementById('viewerTitle').textContent=f.name;
-    const body=document.getElementById('viewerBody');body.innerHTML='';
-    if(f.type.startsWith('image/')){
-      const img=document.createElement('img');img.src=f.data;img.style.maxWidth='100%';body.appendChild(img);
-    } else {
-      const frame=document.createElement('iframe');frame.src=f.data;frame.style.width='100%';frame.style.height='600px';body.appendChild(frame);
+          <a href="${file.data}" target="_blank">View</a>
+          <a href="${file.data}" download="${file.name}">Download</a>
+          <button onclick="deleteFile('${section}','${file.name}')">Delete</button>
+        </div>
+      `;
+      fileList.appendChild(item);
     }
-    document.getElementById('viewer').classList.add('show');
-  }
-  function closeViewer(){document.getElementById('viewer').classList.remove('show');}
 
-  function init(){sections.forEach((s,i)=>renderFiles(i));}
-  init();
+    function deleteFile(section, fileName) {
+      let files = loadFiles(section);
+      files = files.filter(f => f.name !== fileName);
+      saveFiles(section, files);
+      showSection(section);
+    }
 
-  document.getElementById('search').addEventListener('input',e=>{
-    const term=e.target.value.toLowerCase();
-    document.querySelectorAll('#menu button').forEach(btn=>{
-      btn.style.display=btn.textContent.toLowerCase().includes(term)?'inline-block':'none';
+    function searchSection() {
+      const query = document.getElementById("searchBox").value.toLowerCase();
+      const items = menuList.querySelectorAll("li");
+      items.forEach(li => {
+        const text = li.textContent.toLowerCase();
+        li.style.display = text.includes(query) ? "block" : "none";
+      });
+    }
+
+    sections.forEach(name => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = "#";
+      a.textContent = name;
+      a.onclick = () => showSection(name);
+      li.appendChild(a);
+      menuList.appendChild(li);
     });
-  });
-</script>
+
+    showSection(sections[0]);
+  </script>
 </body>
 </html>
